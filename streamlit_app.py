@@ -19,6 +19,14 @@ st.write("**y**")
 y = df["target"]
 st.write(y)
 
+import altair as alt
+
 with st.expander("Data Visualization"):
-   st.bar_chart(data=df, x= "target", x_label= "Heart Disease", y_label= "Count")
+    chart = alt.Chart(df).mark_bar().encode(
+        x=alt.X('target:N', title='Heart Disease'),
+        y=alt.Y('count():Q', title='Count')
+    ).properties(title='Heart Disease Distribution')
+
+    st.altair_chart(chart, use_container_width=True)
+
 
