@@ -77,7 +77,17 @@ st.sidebar.info("This web app is helps you to find out whether you are at a risk
 st.sidebar.info("Enter the required fields and click on the 'Predict' button to check whether you have a healthy heart")
 st.sidebar.info("Don't forget to rate this app")
 
+## Splitting the data into train and test sets
+from sklearn.model_selection import train_test_split
+X_train,X_test,Y_train,Y_test=train_test_split(X,Y,random_state=42,test_size=0.2)
 
+## Iplement the XG Boost Model
+xgb = XGBClassifier(learning_rate=0.01, n_estimators=25, max_depth=15,gamma=0.6, subsample=0.52,colsample_bytree=0.6,seed=27,
+                    reg_lambda=2, booster='dart', colsample_bylevel=0.6, colsample_bynode=0.5)
+
+xgb.fit(X_train,Y_train)
+xgb_score=XGB_clf.score(X_test,Y_test)
+xgb_Y_pred=XGB_clf.predict(X_test)
 
 feedback = st.sidebar.slider('How much would you rate this app?',min_value=0,max_value=5,step=1)
 
