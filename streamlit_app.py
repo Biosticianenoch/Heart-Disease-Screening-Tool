@@ -13,9 +13,9 @@ with st.expander("Data"):
 
 st.write("**X**")
 X = df.drop("target", axis=1).values
-st.write(X)
+X
 
 st.write("**y**")
 y = df["target"].values
-st.write(y)
+y
 
