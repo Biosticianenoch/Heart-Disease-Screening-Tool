@@ -11,8 +11,11 @@ with st.expander("Data"):
     df = pd.read_csv('https://raw.githubusercontent.com/Biosticianenoch/data/refs/heads/main/heart.csv')
     st.dataframe(df)
 
-st.write['**X**']
-X=df.drop("target",axis=1).values
-X
-st.write['**y**']
-y=df.target.values
+st.write("**X**")
+X = df.drop("target", axis=1).values
+st.write(X)
+
+st.write("**y**")
+y = df["target"].values
+st.write(y)
+
