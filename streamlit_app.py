@@ -13,11 +13,12 @@ with st.expander("Data"):
 
 st.write("**X**")
 X = df.drop("target", axis=1)
-X
+st.write(X)
 
 st.write("**y**")
 y = df["target"]
-y
+st.write(y)
 
 with st.expander("Data Visualization"):
-    st.scatter_chart(data = df, x = 'age', y = 'trestbps', color = 'target')
+    st.scatter_chart(data=df, x='age', y='trestbps', color='target')
+
