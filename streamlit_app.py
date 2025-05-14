@@ -12,10 +12,10 @@ with st.expander("Data"):
     df
 
 st.write("**X**")
-X = df.drop("target", axis=1).values
+X = df.drop("target", axis=1)
 X
 
 st.write("**y**")
-y = df["target"].values
+y = df["target"]
 y
 
