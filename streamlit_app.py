@@ -19,3 +19,5 @@ st.write("**y**")
 y = df["target"]
 y
 
+with st.expander("Data Visualization"):
+    st.scatter_chart(data = df, x = 'age', y = 'trestbps', color = 'target')
