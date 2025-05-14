@@ -9,6 +9,7 @@ st.write('This Tool is used to assess the heart disease status of individuals us
 with st.expander("Data"):
     st.write("Raw data")
     df = pd.read_csv('https://raw.githubusercontent.com/Biosticianenoch/data/refs/heads/main/heart.csv')
+    df
 
 st.write("**X**")
 X = df.drop("target", axis=1)
