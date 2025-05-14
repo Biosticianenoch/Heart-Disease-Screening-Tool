@@ -1,13 +1,10 @@
-# 📦 Streamlit App Starter Kit 
-```
-⬆️ (Replace above with your app's name)
-```
+# 📦 Heart Disease Screening Tool
 
-Description of the app ...
+This is a machine learning app used to assess individuals who may be at risk of developing Heart Disease
 
 ## Demo App
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://app-starter-kit.streamlit.app/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://Heart-Disease-Screening-Tool.streamlit.app/)
 
 ## GitHub Codespaces
 
