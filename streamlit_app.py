@@ -59,3 +59,14 @@ with st.sidebar:
     ca = st.selectbox('Number of Major Vessels Colored by Fluoroscopy', range(0, 5))
     thal = st.selectbox('Thalium Stress Result (1 = normal; 2 = fixed defect; 3 = reversible defect)', range(1, 8))
 
+
+    # front end elements of the web page
+html_temp = """
+    <div style ="background-color:pink;padding:13px">
+    <h1 style ="color:black;text-align:center;">Heart Disease Prediction Dashboard</h1>
+    </div>
+    """
+
+# display the front end aspect
+st.markdown(html_temp, unsafe_allow_html = True)
+st.subheader('by Enock Bereka')
