@@ -70,3 +70,17 @@ html_temp = """
 # display the front end aspect
 st.markdown(html_temp, unsafe_allow_html = True)
 st.subheader('by Enock Bereka')
+
+st.sidebar.subheader("About App")
+
+st.sidebar.info("This web app is helps you to find out whether you are at a risk of developing a heart disease.")
+st.sidebar.info("Enter the required fields and click on the 'Predict' button to check whether you have a healthy heart")
+st.sidebar.info("Don't forget to rate this app")
+
+
+
+feedback = st.sidebar.slider('How much would you rate this app?',min_value=0,max_value=5,step=1)
+
+if feedback:
+  st.header("Thank you for rating the app!")
+  st.info("Caution: This is just a prediction and not doctoral advice. Kindly see a doctor if you feel the symptoms persist.")
