@@ -28,6 +28,12 @@ with st.expander("Data Visualization"):
     ).properties(title='Heart Disease Distribution')
 
     st.altair_chart(chart, use_container_width=True)
-    st.bar_chart(data=df, x="thal")
+     chart1 = alt.Chart(df).mark_bar().encode(
+        x=alt.X('thal:N', title='Thal'),
+        y=alt.Y('count():Q', title='Count')
+    ).properties(title='Thal Distribution')
+
+    st.altair_chart(chart1, use_container_width=True)
+ 
 
 
