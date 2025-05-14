@@ -20,5 +20,5 @@ y = df["target"]
 st.write(y)
 
 with st.expander("Data Visualization"):
-    st.scatter_chart(data=df, x='age', y='trestbps', color='target')
+   st.bar_chart(data=df, x= "target", x_label= "Heart Disease", y_label= "Count")
 
