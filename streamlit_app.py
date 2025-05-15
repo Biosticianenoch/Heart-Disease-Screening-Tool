@@ -12,20 +12,11 @@ from sklearn.preprocessing import StandardScaler
 st.title('🎈 Heart Disease Screening Tool')
 st.write('This tool assesses heart disease risk using machine learning integration!')
 
-# Load and display data
-with st.expander("Data"):
-    st.write("Raw data")
-    df = pd.read_csv('https://raw.githubusercontent.com/Biosticianenoch/data/refs/heads/main/heart.csv')
-    st.dataframe(df)
+ df = pd.read_csv('https://raw.githubusercontent.com/Biosticianenoch/data/refs/heads/main/heart.csv')
 
 # Features and target
-st.write("**X**")
-X = df.drop("target", axis=1)
-st.write(X)
-
-st.write("**y**")
+X = df.drop("target", axis=
 y = df["target"]
-st.write(y)
 
 # Visualization
 with st.expander("Data Visualization"):
