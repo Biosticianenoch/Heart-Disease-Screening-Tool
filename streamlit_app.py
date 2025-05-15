@@ -3,9 +3,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import altair as alt
-from xgboost import XGBClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
 
 # Title and description
 st.title('🎈 Heart Disease Screening Tool')
