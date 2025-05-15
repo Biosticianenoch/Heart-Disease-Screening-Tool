@@ -12,7 +12,9 @@ from sklearn.preprocessing import StandardScaler
 st.title('🎈 Heart Disease Screening Tool')
 st.write('This tool assesses heart disease risk using machine learning integration!')
 
- df = pd.read_csv('https://raw.githubusercontent.com/Biosticianenoch/data/refs/heads/main/heart.csv')
+
+# Correctly aligned code
+df = pd.read_csv('https://raw.githubusercontent.com/Biosticianenoch/data/refs/heads/main/heart.csv')
 
 # Features and target
 X = df.drop("target", axis=
