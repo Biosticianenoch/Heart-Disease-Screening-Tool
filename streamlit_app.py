@@ -17,7 +17,7 @@ st.write('This tool assesses heart disease risk using machine learning integrati
 df = pd.read_csv('https://raw.githubusercontent.com/Biosticianenoch/data/refs/heads/main/heart.csv')
 
 # Features and target
-X = df.drop("target", axis=
+X = df.drop("target", axis=1)
 y = df["target"]
 
 # Visualization
