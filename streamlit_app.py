@@ -87,6 +87,74 @@ with st.sidebar:
     ca = st.selectbox('Number of Major Vessels Colored by Fluoroscopy', range(0, 5))
     thal = st.selectbox('Thalium Stress Result (1 = normal; 2 = fixed defect; 3 = reversible defect)', range(1, 8))
 
+
+# Preprocessing user input
+def preprocess(age, sex, cp, trestbps, restecg, chol, fbs, thalach, exang, oldpeak, slope, ca, thal):
+    # Encode categorical variables
+    sex = 1 if sex == "male" else 0
+
+    cp_map = {
+        "Typical angina": 0,
+        "Atypical angina": 1,
+        "Non-anginal pain": 2,
+        "Asymptomatic": 3
+    }
+    cp = cp_map[cp]
+
+    restecg_map = {
+        "Nothing to note": 0,
+        "ST-T Wave abnormality": 1,
+        "Possible or definite left ventricular hypertrophy": 2
+    }
+    restecg = restecg_map[restecg]
+
+    fbs = 1 if fbs == "Yes" else 0
+    exang = 1 if exang == "Yes" else 0
+
+    slope_map = {
+        "Upsloping: better heart rate with exercise (uncommon)": 0,
+        "Flatsloping: minimal change (typical healthy heart)": 1,
+        "Downsloping: signs of unhealthy heart": 2
+    }
+    slope = slope_map[slope]
+
+    # No description in original dataset, so use selected value directly
+    thal = int(thal)
+
+    # Construct input vector
+    user_input = [age, sex, cp, trestbps, chol, fbs, restecg,
+                  thalach, exang, oldpeak, slope, ca, thal]
+    
+    user_input = np.array(user_input).reshape(1, -1)
+
+    # Scale input
+    scaler = StandardScaler()
+    scaler.fit(X)  # fit on training data structure
+    user_input = scaler.transform(user_input)
+
+    # Make prediction
+    prediction = xgb.predict(user_input)
+    return prediction
+
+# Run prediction
+if st.button("Predict"):
+    pred = preprocess(age, sex, cp, trestbps, restecg, chol, fbs,
+                      thalach, exang, oldpeak, slope, ca, thal)
+    
+    if pred[0] == 0:
+        st.error('⚠️ Warning! You have a high risk of heart disease.')
+    else:
+        st.success('✅ You have a lower risk of heart disease.')
+
+# Feedback
+feedback = st.sidebar.slider('How much would you rate this app?', min_value=0, max_value=5, step=1)
+
+if feedback:
+    st.header("Thank you for rating the app!")
+    st.info("⚠️ Caution: This is just a prediction, not medical advice. See a doctor if symptoms persist.")
+
+
+
 # HTML header
 html_temp = """
     <div style ="background-color:pink;padding:13px">
