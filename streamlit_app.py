@@ -35,6 +35,28 @@ with st.expander("Data Visualization"):
     ).properties(title='Heart Disease Distribution')
     st.altair_chart(chart, use_container_width=True)
 
+# Model training
+X_train, X_test, Y_train, Y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+xgb = XGBClassifier(
+    learning_rate=0.01, 
+    n_estimators=25, 
+    max_depth=15,
+    gamma=0.6, 
+    subsample=0.52,
+    colsample_bytree=0.6,
+    seed=27,
+    reg_lambda=2, 
+    booster='dart',
+    colsample_bylevel=0.6, 
+    colsample_bynode=0.5
+)
+
+xgb.fit(X_train, Y_train)
+xgb_score = xgb.score(X_test, Y_test)
+xgb_Y_pred = xgb.predict(X_test)
+
+
 # Sidebar user input
 with st.sidebar:
     st.header("Input Features")
